@@ -41,7 +41,10 @@ const useGlobalSearch = () => {
   // Extract trending items from the search results
   const trendingItems = useMemo(() => {
     if (!searchQuery) {
-      return data?.pages.flatMap((page) => page.items).slice(0, TRADING_PAGE_SIZE) ?? [];
+      return (
+        data?.pages.flatMap((page) => page.items).slice(0, TRADING_PAGE_SIZE) ??
+        []
+      );
     }
     return [];
   }, [data, searchQuery]);
@@ -53,10 +56,10 @@ const useGlobalSearch = () => {
 
   // Scroll to top when search filter changes
   useEffect(() => {
-    if (searchFilter) {
-      resultsRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    if (searchFilter || searchQuery) {
+      resultsRef.current?.scrollTo({ top: 0, behavior: "auto" });
     }
-  }, [searchFilter]);
+  }, [searchFilter, searchQuery]);
 
   // Return an object with all necessary state and functions
   return {

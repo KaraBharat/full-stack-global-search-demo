@@ -69,7 +69,7 @@ const GlobalSearch: React.FC = () => {
 
   return (
     <div className="w-full max-w-[750px] md:w-[750px]">
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

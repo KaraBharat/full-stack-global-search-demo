@@ -20,7 +20,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   const newItemsStartIndex = currentCursor ? parseInt(currentCursor, 10) : 0;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {results.map((item, index) => (
         <motion.div
           key={item.id}
@@ -36,7 +36,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                 : 0,
           }}
           style={{
-            willChange: "transform",
+            willChange: "opacity",
             backfaceVisibility: "hidden",
           }}
         >
