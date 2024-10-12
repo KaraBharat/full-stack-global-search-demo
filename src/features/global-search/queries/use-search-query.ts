@@ -58,13 +58,7 @@ const fetchSearchItems = async (
     throw new Error("Failed to fetch search items");
   }
 
-  const data = await response.json();
-
-  return {
-    items: data.items,
-    totalCount: data.totalCount,
-    nextCursor: data.nextCursor,
-  };
+  return await response.json();
 };
 
 /**
